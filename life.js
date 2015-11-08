@@ -7,7 +7,7 @@ function life(canvasName, squareSize, updateInterval){
   var white = colorSquare(squareSize, ctx, 255, 255, 255);
   var boards = [[], []];
   initialize(boards, h, w);
-  fillRandom(boards[0]);
+  fillRandom(boards[0], h, w);
   setInterval(function() { step(boards, h, w, ctx, white, black, squareSize) }, updateInterval);
 }
 
