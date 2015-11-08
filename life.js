@@ -13,11 +13,8 @@ function life(canvasName, squareSize, updateInterval){
 
 function initialize(boards, h, w){
   for(var i=0; i<h; i++) {
-    boards[0][i] = new Array(300);
-    boards[1][i] = new Array(300);
-    for (var j=0; j<w; j++){
-      boards[0][i][j]=Math.random() < .5 ? 0 : 1;
-    }
+    boards[0][i] = new Array(w);
+    boards[1][i] = new Array(w);
   }
 }
 
