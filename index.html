@@ -1,12 +1,12 @@
 <HTML><HEAD><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <STYLE> 
 canvas { 
-	width:300px; 
-	height:300px 
+	width:500px; 
+	height:500px 
 } 
 </STYLE>
 <SCRIPT type="text/javascript">
-size=300;
+size=250;
 board=new Array()
 temp=new Array()
 for (i=0;i<size;i++){
@@ -69,7 +69,7 @@ Your browser does not support HTML5 Canvas.
 var canvas = document.getElementById('life');
 var context = canvas.getContext('2d');
 var currentPixels = context.getImageData(0, 0, canvas.width, canvas.height);
-var newPixels = context.createImageData(canvas.width, canvas.height);
+var newPixels = context.createImageData(canvas.width/2, canvas.height/2);
 
 update()
 </SCRIPT>
