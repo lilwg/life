@@ -17,10 +17,10 @@ for (i=0;i<size;i++){
   }
 }
 function nSum(){
-	iP=(i-1+size)%size; //if(iP==-1){iP=width-1}
-	iN=(i+1)%size; //if(iN==width){iN=0}
-	jP=(j-1+size)%size; //if(jP==-1){jP=height-1}
-	jN=(j+1)%size; //if(jN==height){jN=0}
+	iP=(i-1+size)%size;
+	iN=(i+1)%size;
+	jP=(j-1+size)%size;
+	jN=(j+1)%size;
 	
 	return board[iP][jP]+
 	       board[iP][j]+
@@ -62,7 +62,7 @@ function update(){
 </SCRIPT>
 </HEAD><BODY>
 
-<CANVAS id="life" width="300" height="300">
+<CANVAS id="life" width="500" height="500">
 Your browser does not support HTML5 Canvas.
 </CANVAS>
 <SCRIPT type="text/javascript">
