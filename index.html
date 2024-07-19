@@ -1,26 +1,26 @@
-<HTML><HEAD><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<STYLE> 
-canvas { 
-	width:500px; 
-	height:500px 
-} 
-</STYLE>
-<SCRIPT type="text/javascript">
-size=500;
+<!DOCTYPE html>
+<title>Life</title>
+<canvas id="life" width="600" height="400"></canvas>
+<script>
+var canvas = document.getElementById('life');
+var context = canvas.getContext('2d');
+var currentPixels = context.getImageData(0, 0, canvas.width, canvas.height);
+var newPixels = context.createImageData(canvas.width, canvas.height);
+
 board=new Array()
 temp=new Array()
-for (i=0;i<size;i++){
+for (i=0;i<canvas.height;i++){
 	board[i]=new Array()
 	temp[i]=new Array()
-	for (j=0;j<size;j++){
+	for (j=0;j<canvas.width;j++){
 		board[i][j]=((Math.random()>.5)?1:0)
   }
 }
 function nSum(){
-	iP=(i-1+size)%size;
-	iN=(i+1)%size;
-	jP=(j-1+size)%size;
-	jN=(j+1)%size;
+	iP=(i-1+canvas.height)%canvas.height;
+	iN=(i+1)%canvas.height;
+	jP=(j-1+canvas.width)%canvas.width;
+	jN=(j+1)%canvas.width;
 	
 	return board[iP][jP]+
 	       board[iP][j]+
@@ -31,10 +31,10 @@ function nSum(){
 	       board[iN][j]+
 	       board[iN][jN]
 }
-	
+
 function update(){
-	for (i=0;i<size;i++){
-		for (j=0;j<size;j++){
+	for (i=0;i<canvas.height;i++){
+		for (j=0;j<canvas.width;j++){
 			sum=nSum()
 			if (sum==3){
 				temp[i][j]=1}
@@ -42,8 +42,8 @@ function update(){
 				temp[i][j]=1}
 			else{
 				temp[i][j]=0}}}			
-	for (i=0;i<size;i++){
-		for (j=0;j<size;j++){
+	for (i=0;i<canvas.height;i++){
+		for (j=0;j<canvas.width;j++){
 			board[i][j]=temp[i][j]}}
 	
 	for (i=0;i<newPixels.height;i++) {
@@ -59,17 +59,6 @@ function update(){
 	context.putImageData(newPixels, 0, 0);
 	t=setTimeout("update()",1);
 }
-</SCRIPT>
-</HEAD><BODY>
-
-<CANVAS id="life" width="500" height="500">
-Your browser does not support HTML5 Canvas.
-</CANVAS>
-<SCRIPT type="text/javascript">
-var canvas = document.getElementById('life');
-var context = canvas.getContext('2d');
-var currentPixels = context.getImageData(0, 0, canvas.width, canvas.height);
-var newPixels = context.createImageData(canvas.width, canvas.height);
 
 update()
-</SCRIPT>
+</script>
